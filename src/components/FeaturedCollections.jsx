@@ -1,15 +1,35 @@
 import React from 'react';
 
 const collections = [
-  { id: 1, title: 'Midnight Cravings', count: '24 Places', tag: 'Late Night', bg: '#312e81', image: 'https://i.pinimg.com/736x/28/53/e2/2853e2466c8ff5553dfc67fa1f3814a8.jpg' },
-  { id: 2, title: 'Gourmet Dining', count: '18 Places', tag: 'Fine Taste', bg: '#581c87', image: 'https://i.pinimg.com/736x/b7/11/5d/b7115dec05c14e61dec840741adc1194.jpg' },
-  { id: 3, title: 'Pocket Friendly', count: '40+ Places', tag: 'Under ₹199', bg: '#065f46', image: 'https://i.pinimg.com/736x/38/26/14/38261470ae2d46c2b1672f245b36f67f.jpg' },
-  { id: 4, title: 'Healthy & Organic', count: '15 Places', tag: 'Guilt Free', bg: '#b45309', image: 'https://i.pinimg.com/736x/a3/41/d4/a341d44bf1bf710eda354fa2f7c1267c.jpg' }
+  {
+    id: 1,
+    title: 'Midnight Cravings',
+    places: '24 Places',
+    image: 'https://i.pinimg.com/736x/88/32/95/883295a0acf9b11f2cbd28697be5a097.jpg'
+  },
+  {
+    id: 2,
+    title: 'Gourmet Dining',
+    places: '18 Places',
+    image: 'https://i.pinimg.com/736x/b6/ef/2f/b6ef2ffdb9c944293571fd7cad721964.jpg'
+  },
+  {
+    id: 3,
+    title: 'Pocket Friendly',
+    places: '32 Places',
+    image: 'https://i.pinimg.com/1200x/2d/b4/2d/2db42da34347e60657fb62c13b6ffcc5.jpg'
+  },
+  {
+    id: 4,
+    title: 'Healthy & Organic',
+    places: '15 Places',
+    image: 'https://i.pinimg.com/736x/08/c7/0d/08c70d473888e35bd1c4cd9d1d2983d7.jpg'
+  }
 ];
 
 export default function FeaturedCollections() {
   return (
-    <section className="section-padding" style={{ background: '#fff' }}>
+    <section className="section-padding collections-section">
       <div className="container">
         <div className="section-header" data-aos="fade-up">
           <span className="tag">Handpicked Curations</span>
@@ -22,14 +42,13 @@ export default function FeaturedCollections() {
             <div 
               key={item.id} 
               className="collection-card"
+              style={{ backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.85) 100%), url(${item.image})` }}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${item.image})` }}
             >
-              <span className="collection-tag">{item.tag}</span>
               <div className="collection-content">
                 <h3>{item.title}</h3>
-                <p>{item.count}</p>
+                <p>{item.places}</p>
               </div>
             </div>
           ))}

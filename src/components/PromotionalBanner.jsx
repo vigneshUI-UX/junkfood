@@ -8,7 +8,7 @@ export default function PromotionalBanner() {
           className="promo-banner" 
           style={{
             /* Add your image URL inside url('...') below */
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/1200x/11/82/1b/11821bdaa8822354f5d8a823bb3a9dbd.jpg')`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/1200x/ab/cd/60/abcd60e626ca9a02ba3c63c1af27ad83.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             position: 'relative',

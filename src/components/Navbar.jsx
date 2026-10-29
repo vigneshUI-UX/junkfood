@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, MapPin, Menu, X } from 'lucide-react';
+import { ShoppingBag, MapPin, Flame, Menu, X } from 'lucide-react';
 
 export default function Navbar({ cartCount, onOpenCart }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -8,67 +8,52 @@ export default function Navbar({ cartCount, onOpenCart }) {
     setMobileMenuOpen((prev) => !prev);
   };
 
-  const handleLinkClick = () => {
-    setMobileMenuOpen(false);
-  };
-
   return (
     <nav className="navbar">
       <div className="container nav-container">
-        {/* LOGO & LOCATION */}
+        {/* Brand & Location */}
         <div className="nav-brand">
           <a href="#" className="nav-logo">
-            <span></span> Fast<span style={{ color: '#fff' }}>Food</span>
+            <span>FastFood</span>
           </a>
-
-        
+         
         </div>
 
-        {/* DESKTOP NAVIGATION LINKS */}
+        {/* Desktop Links */}
         <div className="desktop-links">
-          <a href="#categories">Categories</a>
-          <a href="#bestsellers">Bestsellers</a>
-          <a href="#offers" className="offers-badge">Offers 🔥</a>
-          <a href="#story">Our Story</a>
+          <a href="#menu">Menu</a>
+          <a href="#offers">Offers</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
 
-        {/* RIGHT SIDE ACTIONS: CART & MOBILE TOGGLE */}
+        {/* Actions & Mobile Hamburger */}
         <div className="nav-actions">
-          <button className="cart-btn" onClick={onOpenCart}>
-            <ShoppingBag size={18} color="var(--primary)" />
-            <span className="cart-text">Cart</span>
-            {cartCount > 0 && (
-              <span className="cart-badge">{cartCount}</span>
-            )}
+          <button className="cart-btn" onClick={onOpenCart} aria-label="Open Food Basket">
+            <ShoppingBag size={18} />
+            <span>Basket</span>
+            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </button>
 
-          <button
-            className="mobile-toggle-btn"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle Navigation Menu"
+          <button 
+            className="mobile-toggle-btn" 
+            onClick={toggleMobileMenu} 
+            aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
-      </div>
 
-      {/* MOBILE MENU DROPDOWN (Positioned absolutely below navbar to prevent overlap) */}
-      {mobileMenuOpen && (
-        <div className="mobile-menu-drawer">
-          <div className="mobile-location-badge">
-            <MapPin size={16} color="var(--primary)" />
-            <span>Bengaluru, KA</span>
+        {/* Mobile Dropdown Drawer Menu */}
+        {mobileMenuOpen && (
+          <div className="mobile-menu-drawer">
+            <a href="#menu" onClick={() => setMobileMenuOpen(false)}>Menu</a>
+            <a href="#offers" onClick={() => setMobileMenuOpen(false)}>Offers</a>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
           </div>
-          <a href="#categories" onClick={handleLinkClick}>Categories</a>
-          <a href="#bestsellers" onClick={handleLinkClick}>Bestsellers</a>
-          <a href="#offers" onClick={handleLinkClick} style={{ fontWeight: 800, color: 'var(--primary)' }}>
-            Offers 🔥
-          </a>
-          <a href="#story" onClick={handleLinkClick}>Our Story</a>
-          <a href="#contact" onClick={handleLinkClick}>Contact</a>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 }

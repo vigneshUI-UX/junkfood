@@ -3,22 +3,26 @@ import { Zap, ShieldCheck, Award, Percent } from 'lucide-react';
 
 const features = [
   {
-    icon: <Zap size={28} color="var(--primary)" />,
+    id: 1,
+    icon: <Zap size={28} color="#ff5200" />,
     title: 'Lightning Fast',
     desc: 'Average delivery time under 30 minutes guaranteed.'
   },
   {
-    icon: <ShieldCheck size={28} color="var(--primary)" />,
+    id: 2,
+    icon: <ShieldCheck size={28} color="#ff5200" />,
     title: 'Hygiene Certified',
     desc: 'Strict multi-stage safety and temperature monitoring.'
   },
   {
-    icon: <Award size={28} color="var(--primary)" />,
+    id: 3,
+    icon: <Award size={28} color="#ff5200" />,
     title: 'Top Rated Chefs',
     desc: 'Curated dishes from award-winning local masterchefs.'
   },
   {
-    icon: <Percent size={28} color="var(--primary)" />,
+    id: 4,
+    icon: <Percent size={28} color="#ff5200" />,
     title: 'Zero Surge Fee',
     desc: 'Transparent pricing with no hidden delivery charges.'
   }
@@ -26,27 +30,26 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="section-padding" style={{ background: '#fdfbfb' }}>
+    <section className="section-padding why-choose-section">
       <div className="container">
         <div className="section-header" data-aos="fade-up">
-          <span className="tag">The FastFood Edge</span>
           <h2>Why Choose Us</h2>
           <p>Delivering quality, speed, and taste every single time</p>
         </div>
 
-        <div className="why-choose-grid">
-          {features.map((item, index) => (
+        <div className="features-grid">
+          {features.map((feature, index) => (
             <div 
-              key={index}
-              className="why-choose-card"
+              key={feature.id} 
+              className="feature-card"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <div className="why-icon-wrapper">
-                {item.icon}
+              <div className="feature-icon-wrapper">
+                {feature.icon}
               </div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
+              <h3>{feature.title}</h3>
+              <p>{feature.desc}</p>
             </div>
           ))}
         </div>
