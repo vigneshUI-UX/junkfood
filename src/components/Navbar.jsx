@@ -1,79 +1,74 @@
-import React from 'react';
-import { ShoppingBag, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { ShoppingBag, MapPin, Menu, X } from 'lucide-react';
 
 export default function Navbar({ cartCount, onOpenCart }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => !prev);
+  };
+
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <nav 
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
-        background: 'var(--primary)', /* Full Orange Navbar Background */
-        color: '#ffffff',
-        padding: '14px 0',
-        boxShadow: '0 4px 20px rgba(255, 82, 0, 0.25)',
-        transition: 'all 0.3s ease'
-      }}
-    >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        
-        {/* LOGO */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-          <a href="#" style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '6px' }}>
+    <nav className="navbar">
+      <div className="container nav-container">
+        {/* LOGO & LOCATION */}
+        <div className="nav-brand">
+          <a href="#" className="nav-logo">
             <span></span> Fast<span style={{ color: '#fff' }}>Food</span>
           </a>
-          </div>
-        {/* NAVIGATION LINKS */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '28px', fontWeight: 600, fontSize: '0.95rem', color: '#ffffff' }}>
-          <a href="#categories" style={{ color: '#ffffff', opacity: 0.9, transition: 'opacity 0.2s' }} onMouseOver={(e) => e.target.style.opacity = '1'} onMouseOut={(e) => e.target.style.opacity = '0.9'}>Categories</a>
-          <a href="#bestsellers" style={{ color: '#ffffff', opacity: 0.9, transition: 'opacity 0.2s' }} onMouseOver={(e) => e.target.style.opacity = '1'} onMouseOut={(e) => e.target.style.opacity = '0.9'}>Bestsellers</a>
-          <a href="#offers" style={{ color: '#fff', fontWeight: 800, background: 'rgba(255, 255, 255, 0.2)', padding: '4px 12px', borderRadius: '20px' }}>Offers 🔥</a>
-          <a href="#story" style={{ color: '#ffffff', opacity: 0.9, transition: 'opacity 0.2s' }} onMouseOver={(e) => e.target.style.opacity = '1'} onMouseOut={(e) => e.target.style.opacity = '0.9'}>Our Story</a>
-          <a href="#contact" style={{ color: '#ffffff', opacity: 0.9, transition: 'opacity 0.2s' }} onMouseOver={(e) => e.target.style.opacity = '1'} onMouseOut={(e) => e.target.style.opacity = '0.9'}>Contact</a>
+
+        
         </div>
 
-        {/* WHITE CART BUTTON ON ORANGE NAVBAR */}
-        <button 
-          onClick={onOpenCart}
-          style={{
-            background: '#ffffff',
-            color: 'var(--primary)',
-            padding: '10px 22px',
-            borderRadius: '50px',
-            fontWeight: 800,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)',
-            cursor: 'pointer',
-            transition: 'all 0.2s ease-in-out',
-            border: 'none'
-          }}
-          onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-          onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-        >
-          <ShoppingBag size={18} color="var(--primary)" />
-          <span>Cart</span>
-          {cartCount > 0 && (
-            <span style={{
-              background: 'var(--primary)',
-              color: '#ffffff',
-              borderRadius: '50%',
-              width: '22px',
-              height: '22px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '0.8rem',
-              fontWeight: 800,
-              marginLeft: '4px'
-            }}>
-              {cartCount}
-            </span>
-          )}
-        </button>
+        {/* DESKTOP NAVIGATION LINKS */}
+        <div className="desktop-links">
+          <a href="#categories">Categories</a>
+          <a href="#bestsellers">Bestsellers</a>
+          <a href="#offers" className="offers-badge">Offers 🔥</a>
+          <a href="#story">Our Story</a>
+          <a href="#contact">Contact</a>
+        </div>
 
+        {/* RIGHT SIDE ACTIONS: CART & MOBILE TOGGLE */}
+        <div className="nav-actions">
+          <button className="cart-btn" onClick={onOpenCart}>
+            <ShoppingBag size={18} color="var(--primary)" />
+            <span className="cart-text">Cart</span>
+            {cartCount > 0 && (
+              <span className="cart-badge">{cartCount}</span>
+            )}
+          </button>
+
+          <button
+            className="mobile-toggle-btn"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {/* MOBILE MENU DROPDOWN (Positioned absolutely below navbar to prevent overlap) */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu-drawer">
+          <div className="mobile-location-badge">
+            <MapPin size={16} color="var(--primary)" />
+            <span>Bengaluru, KA</span>
+          </div>
+          <a href="#categories" onClick={handleLinkClick}>Categories</a>
+          <a href="#bestsellers" onClick={handleLinkClick}>Bestsellers</a>
+          <a href="#offers" onClick={handleLinkClick} style={{ fontWeight: 800, color: 'var(--primary)' }}>
+            Offers 🔥
+          </a>
+          <a href="#story" onClick={handleLinkClick}>Our Story</a>
+          <a href="#contact" onClick={handleLinkClick}>Contact</a>
+        </div>
+      )}
     </nav>
   );
 }

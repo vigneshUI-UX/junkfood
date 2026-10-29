@@ -2,24 +2,28 @@ import React from 'react';
 
 export default function BrandStory() {
   return (
-    <section id="brand" className="section-padding" style={{ background: '#fff' }}>
+    <section id="story" className="section-padding" style={{ background: '#fff', overflow: 'hidden' }}>
       <div className="container">
-        <div className="brand-story">
-          <div>
-            <span className="tag">Our Passion</span>
-            <h2 style={{ fontSize: '2.4rem', fontWeight: 800, marginBottom: '16px' }}>
-              Redefining Food Delivery With Integrity & Speed
-            </h2>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '16px' }}>
+        <div className="brand-story-grid">
+          
+          {/* Left Side: Content */}
+          <div className="brand-story-text" data-aos="fade-right">
+            <h2>Redefining Food Delivery With Integrity & Speed</h2>
+            <p>
               Founded with the vision to make restaurant-grade culinary experiences accessible at home, SwiggyBites collaborates exclusively with top-rated kitchens, organic suppliers, and cloud masterchefs.
             </p>
-            <p style={{ color: 'var(--text-muted)' }}>
-              Every meal is packaged in eco-friendly thermal containers ensuring your food stays fresh, hot, and delicious from kitchen to table.
-            </p>
+           
           </div>
-          <div>
-            <img src="https://i.pinimg.com/1200x/d8/9a/8a/d89a8aa6e670284f88a320353d7c3e18.jpg" alt="Kitchen Prep" />
+
+          {/* Right Side: Chef Illustration/Image */}
+          <div className="brand-story-img" data-aos="fade-left">
+           
+            <img 
+              src="https://i.pinimg.com/736x/e5/c0/68/e5c0684d1f0a4db9db3092966cd44873.jpg" 
+              alt="Master Chef" 
+            />
           </div>
+
         </div>
       </div>
     </section>

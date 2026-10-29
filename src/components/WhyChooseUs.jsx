@@ -1,29 +1,52 @@
 import React from 'react';
-import { ShieldCheck, Zap, Award, HeartHandshake } from 'lucide-react';
+import { Zap, ShieldCheck, Award, Percent } from 'lucide-react';
+
+const features = [
+  {
+    icon: <Zap size={28} color="var(--primary)" />,
+    title: 'Lightning Fast',
+    desc: 'Average delivery time under 30 minutes guaranteed.'
+  },
+  {
+    icon: <ShieldCheck size={28} color="var(--primary)" />,
+    title: 'Hygiene Certified',
+    desc: 'Strict multi-stage safety and temperature monitoring.'
+  },
+  {
+    icon: <Award size={28} color="var(--primary)" />,
+    title: 'Top Rated Chefs',
+    desc: 'Curated dishes from award-winning local masterchefs.'
+  },
+  {
+    icon: <Percent size={28} color="var(--primary)" />,
+    title: 'Zero Surge Fee',
+    desc: 'Transparent pricing with no hidden delivery charges.'
+  }
+];
 
 export default function WhyChooseUs() {
-  const features = [
-    { icon: <Zap size={28} />, title: 'Lightning Fast', desc: 'Average delivery time under 30 minutes guaranteed.' },
-    { icon: <ShieldCheck size={28} />, title: 'Hygiene Certified', desc: 'Strict multi-stage safety and temperature monitoring.' },
-    { icon: <Award size={28} />, title: 'Top Rated Chefs', desc: 'Curated dishes from award-winning local masterchefs.' },
-    { icon: <HeartHandshake size={28} />, title: 'Zero Surge Fee', desc: 'Transparent pricing with no hidden delivery charges.' }
-  ];
-
   return (
-    <section className="section-padding">
+    <section className="section-padding" style={{ background: '#fdfbfb' }}>
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" data-aos="fade-up">
           <span className="tag">The FastFood Edge</span>
           <h2>Why Choose Us</h2>
           <p>Delivering quality, speed, and taste every single time</p>
         </div>
 
-        <div className="features-grid">
-          {features.map((f, idx) => (
-            <div key={idx} className="feature-card">
-              <div className="feature-icon">{f.icon}</div>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>{f.title}</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{f.desc}</p>
+        <div className="why-choose-grid">
+          {features.map((item, index) => (
+            <div 
+              key={index}
+              className="why-choose-card"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <div className="why-icon-wrapper">
+                {item.icon}
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
             </div>
           ))}
         </div>
