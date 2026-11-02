@@ -1,5 +1,5 @@
 /* ==========================================
-   1. GLOBAL RESET & CENTERING ARCHITECTURE
+   1. GLOBAL RESET & FLUID ULTRA-WIDE ARCHITECTURE
    ========================================== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -24,13 +24,14 @@ html, body {
   align-items: center;
 }
 
+/* Fluid Container that expands across 2560px displays */
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 section {
@@ -41,13 +42,13 @@ section {
 }
 
 .section-padding {
-  padding: 70px 0;
+  padding: 80px 0;
 }
 
 /* Universal Section Headers */
 .section-header {
   text-align: center;
-  max-width: 700px;
+  max-width: 750px;
   margin: 0 auto 40px;
   padding: 0 20px;
 }
@@ -66,7 +67,7 @@ section {
 }
 
 .section-header h2 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #1f2937;
   margin-bottom: 10px;
@@ -74,13 +75,13 @@ section {
 }
 
 .section-header p {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #6b7280;
   line-height: 1.6;
 }
 
 /* ==========================================
-   2. NAVBAR & MOBILE TOGGLE DRAWER
+   2. NAVBAR & MOBILE DRAWER
    ========================================== */
 .navbar {
   position: sticky;
@@ -100,9 +101,9 @@ section {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  max-width: 1400px;
+  max-width: 1500px;
   width: 100%;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 .nav-brand {
@@ -137,7 +138,7 @@ section {
 .desktop-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
   font-weight: 600;
   font-size: 1rem;
 }
@@ -162,7 +163,7 @@ section {
 .cart-btn {
   background: #ffffff;
   color: #ff5200;
-  padding: 9px 20px;
+  padding: 10px 22px;
   border-radius: 50px;
   font-weight: 800;
   display: flex;
@@ -231,12 +232,12 @@ section {
    ========================================== */
 .hero-section {
   position: relative;
-  padding: 100px 0 110px;
+  padding: 110px 0 130px;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 580px;
+  min-height: 620px;
   overflow: hidden;
   background: #000000;
   width: 100%;
@@ -269,13 +270,13 @@ section {
 .hero-container {
   position: relative;
   z-index: 3;
-  max-width: 900px;
+  max-width: 950px;
   margin: 0 auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 .hero-badge {
@@ -294,7 +295,7 @@ section {
 }
 
 .hero-title {
-  font-size: 3.6rem;
+  font-size: 3.8rem;
   font-weight: 900;
   line-height: 1.15;
   margin: 0 0 16px 0;
@@ -306,10 +307,10 @@ section {
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: #e5e7eb;
   margin-bottom: 36px;
-  max-width: 650px;
+  max-width: 700px;
   line-height: 1.5;
 }
 
@@ -320,7 +321,7 @@ section {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 620px;
+  max-width: 650px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
@@ -360,28 +361,25 @@ section {
 }
 
 /* ==========================================
-   4. STANDARD GRIDS & CARDS
+   4. FULLY FLUID CSS GRID FOR ULTRA-WIDE FRAMES
    ========================================== */
 .categories-grid, 
-.partners-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 36px;
-  width: 100%;
-}
-
-.products-grid {
+.partners-grid,
+.products-grid,
+.collections-grid,
+.features-grid,
+.reviews-grid,
+.offers-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 36px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
   width: 100%;
+  justify-content: center;
 }
 
 .product-card {
+  width: 100%;
   background: #ffffff;
   border-radius: 18px;
   overflow: hidden;
@@ -390,7 +388,6 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .product-card:hover {
@@ -514,22 +511,15 @@ section {
 }
 
 /* ==========================================
-   5. COLLECTIONS, FEATURES, REVIEWS & OFFERS
+   5. COLLECTIONS, FEATURES & BRAND STORY
    ========================================== */
 .collections-section {
   background: #ffffff;
   width: 100%;
 }
 
-.collections-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 36px;
-  width: 100%;
-}
-
 .collection-card {
+  width: 100%;
   position: relative;
   height: 360px;
   border-radius: 18px;
@@ -545,7 +535,6 @@ section {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  width: 100%;
 }
 
 .collection-card:hover {
@@ -567,22 +556,14 @@ section {
   font-weight: 500;
 }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 28px;
-  margin-top: 40px;
-  width: 100%;
-}
-
 .feature-card {
+  width: 100%;
   background: #f9fafb;
   border: 1px solid #f3f4f6;
   border-radius: 18px;
   padding: 32px 24px;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  width: 100%;
 }
 
 .feature-card:hover {
@@ -615,22 +596,6 @@ section {
   color: #6b7280;
   line-height: 1.5;
   margin: 0;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 36px;
-  width: 100%;
-}
-
-.offers-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 30px;
-  width: 100%;
 }
 
 .brand-story-section {
@@ -933,63 +898,51 @@ section {
 
 
 /* ==========================================
-   7. ULTRA-WIDE SCREENS & 4K MONITORS (1440px to 2560px+)
+   7. ULTRA-WIDE & 4K MONITOR OPTIMIZATIONS (1440px to 2560px+)
    ========================================== */
 @media (min-width: 1440px) {
   .container {
-    max-width: 1400px;
-  }
-
-  .hero-section {
-    min-height: 640px;
-  }
-
-  .hero-title {
-    font-size: 4rem;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 1600px;
   }
 }
 
 @media (min-width: 1920px) {
   .container {
-    max-width: 1700px;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
-  .collections-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .hero-title {
-    font-size: 4.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.4rem;
+    max-width: 2000px;
   }
 }
 
 @media (min-width: 2560px) {
+  /* Fluid full-width scaling for 2560px+ screens */
   .container {
-    max-width: 2100px;
+    max-width: 2450px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 
-  .products-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+  .nav-container {
+    max-width: 2450px;
+    padding: 0 80px;
   }
 
+  /* Automatically stretches and distributes cards across ultra-wide frames */
+  .products-grid,
+  .collections-grid,
   .features-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 36px;
   }
 
   body {
-    font-size: 18px;
+    font-size: 19px;
+  }
+
+  .hero-section {
+    min-height: 720px;
+  }
+
+  .hero-title {
+    font-size: 5.2rem;
   }
 }
 
@@ -998,16 +951,6 @@ section {
    8. MOBILE & TABLET BREAKPOINTS (< 1024px)
    ========================================== */
 @media (max-width: 1024px) {
-  .products-grid,
-  .collections-grid,
-  .features-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .reviews-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .brand-story-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1056,73 +999,5 @@ section {
 
   .hero-title {
     font-size: 2rem;
-  }
-}
-/* ==========================================
-   CENTERED RESPONSIVE GRID ALIGNMENT
-   ========================================== */
-.products-grid,
-.collections-grid,
-.features-grid,
-.reviews-grid,
-.offers-grid {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 36px;
-  width: 100%;
-}
-
-/* Ensure each card has a fixed or max width so they wrap and center nicely */
-.product-card {
-  width: 280px;
-  background: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.collection-card {
-  width: 280px;
-  position: relative;
-  height: 360px;
-  border-radius: 18px;
-  overflow: hidden;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 26px;
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.feature-card {
-  width: 280px;
-  background: #f9fafb;
-  border: 1px solid #f3f4f6;
-  border-radius: 18px;
-  padding: 32px 24px;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-/* On mobile screens, let cards take full width */
-@media (max-width: 768px) {
-  .product-card,
-  .collection-card,
-  .feature-card {
-    width: 100%;
-    max-width: 400px;
   }
 }
